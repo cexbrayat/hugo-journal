@@ -33,7 +33,8 @@
     <div class="container">
 
       {{ if .IsHome -}}
-      <header class="site-header">
+      <header class="site-header" style="text-align: center;">
+        <img src="{{ "images/profile.jpg" | relURL }}" style="border-radius: 50%; height: 200px">
         <h1>{{ .Site.Title }}</h1>
         <p>{{ .Site.Params.tagline }}</p>
       </header>

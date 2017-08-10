@@ -2,6 +2,9 @@
       <footer class="site-footer">
         <span itemscope itemtype="http://schema.org/Person">
           <link itemprop="url" href="{{ .Site.BaseURL }}">
+          {{ if not .IsHome -}}
+          <img src="{{ "images/profile.jpg" | relURL }}" style="border-radius: 50%; height: 1em">&nbsp;
+          {{- end -}}
           <span itemprop="name">{{- .Site.Author.name -}}</span>
 
           {{ if isset .Site.Params "work" -}},
