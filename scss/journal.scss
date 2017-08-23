@@ -1,8 +1,10 @@
+@import url('https://rsms.me/interface/interface.css');
+
 $black: #303030;
 $gray: #686868;
 $light-gray: #e5e5e5;
 $white: #fbfbfb;
-$serif: 'Arvo';
+$font: 'Interface';
 $monospace: '"Source Code Pro"';
 $fs: 1rem;
 $fs-large: 1.125rem;
@@ -20,7 +22,7 @@ html {
 
   color: $black;
 
-  font-family: $serif, serif;
+  font-family: $font, sans-serif;
   font-size: $fs;
 
   @media screen and (min-width: $break-small) {
