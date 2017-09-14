@@ -10,4 +10,13 @@
 
   </article>
 
+  <nav style="display: flex; justify-content: space-between">
+  {{ if .PrevInSection }}
+    <a href="{{.PrevInSection.Permalink}}">Previous</a>
+  {{ end }}
+  {{ if .NextInSection }}
+    <a href="{{.NextInSection.Permalink}}">Next</a>
+  {{ end }}
+  </nav>
+
 {{ partial "bottom.html" . }}
