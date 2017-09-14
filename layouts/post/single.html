@@ -6,17 +6,29 @@
       <time class="post-date" datetime="{{ .Date.Format "2006-01-02 15:04:05 MST" }}">{{ .Date.Format "02 Jan 2006" }}</time>
     </header>
 
+    <nav style="display: flex; justify-content: space-between; margin-bottom: 2rem;">
+    {{ if .PrevInSection }}
+      <a href="{{.PrevInSection.Permalink}}">Previous</a>
+    {{ end }}
+    {{ if .NextInSection }}
+      <a href="{{.NextInSection.Permalink}}">Next</a>
+    {{ end }}
+    </nav>
+
+    {{ if .Params.positions }}
+
+     <div style="height: 400px; margin-bottom: 2rem;">
+      <google-map api-key="AIzaSyDP0QBqz-DhR2b6E-9cFcqNXRWXaAeABzs" fit-to-markers>
+        {{ range .Params.positions }}
+        <google-map-marker slot="markers" latitude="{{ .lat }}" longitude="{{ .long }}"></google-map-marker>
+        {{ end }}
+      </google-map>
+    </div>
+
+    {{ end }}
+
     {{ .Content }}
 
   </article>
-
-  <nav style="display: flex; justify-content: space-between">
-  {{ if .PrevInSection }}
-    <a href="{{.PrevInSection.Permalink}}">Previous</a>
-  {{ end }}
-  {{ if .NextInSection }}
-    <a href="{{.NextInSection.Permalink}}">Next</a>
-  {{ end }}
-  </nav>
 
 {{ partial "bottom.html" . }}
