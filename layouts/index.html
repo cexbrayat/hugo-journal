@@ -2,6 +2,16 @@
 
   <article class="posts">
 
+     <div style="height: 400px; margin-bottom: 2rem;">
+      <google-map api-key="AIzaSyDP0QBqz-DhR2b6E-9cFcqNXRWXaAeABzs" fit-to-markers>
+        {{ range .Pages -}}
+        {{ range .Params.positions }}
+        <google-map-marker slot="markers" latitude="{{ .lat }}" longitude="{{ .long }}"></google-map-marker>
+        {{ end }}
+        {{- end }}
+      </google-map>
+    </div>
+
     {{ range (where .Data.Pages "Type" "post").GroupByDate "2006" -}}
     <section>
       <h2>{{ .Key }}</h2>
