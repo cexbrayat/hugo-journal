@@ -29,6 +29,26 @@
 
     {{ .Content }}
 
+    {{ if .Params.photos }}
+
+    <div>
+        {{ range .Params.photos }}
+        <img src="http://localhost:8111/{{ . }}"></img>
+        {{ end }}
+    </div>
+
+    {{ end }}
+
+    {{ if .Params.videos }}
+
+    <div>
+        {{ range .Params.videos }}
+        <video style="max-width: 100%" controls playsinline src="http://localhost:8111/{{ . }}"></video>
+        {{ end }}
+    </div>
+
+    {{ end }}
+
   </article>
 
 {{ partial "bottom.html" . }}
