@@ -5,8 +5,10 @@
      <div style="height: 400px; margin-bottom: 2rem;">
       <google-map api-key="AIzaSyDP0QBqz-DhR2b6E-9cFcqNXRWXaAeABzs" fit-to-markers>
         {{ range .Pages -}}
+        {{ $title := .Title }}
+        {{ $date := .Date.Format "2006-01-02" }}
         {{ range .Params.positions }}
-        <google-map-marker slot="markers" latitude="{{ .lat }}" longitude="{{ .long }}"></google-map-marker>
+        <google-map-marker slot="markers" latitude="{{ .lat }}" longitude="{{ .long }}" title="{{ print $date " - " $title }}"></google-map-marker>
         {{ end }}
         {{- end }}
       </google-map>
@@ -19,7 +21,7 @@
       <ol>
         {{ range .Pages -}}
         <li>
-          <time datetime="{{ .Date.Format "2006-01-02 15:04:05 MST" }}">{{ .Date.Format "Jan 02"}}</time>
+          <time datetime="{{ .Date.Format "2006-01-02 15:04:05 MST" }}">{{ .Date.Format "Jan 02" }}</time>
           <a href="{{ .RelPermalink }}">{{ .Title }}</a>
         </li>
         {{- end }}
